@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Location Tracking</title>	
+		<link rel="shortcut icon" href="{% static "LocationTracking/images/favicon.ico" %}" type="image/x-icon">
+		<link rel="icon" href="{% static "LocationTracking/images/favicon.ico" %}" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{% static "LocationTracking/css/bootstrap.min.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "LocationTracking/css/bootswatch.min.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "LocationTracking/css/base.css" %}"/>
+		<script type="text/javascript" src="{% static "LocationTracking/js/jquery-1.10.2.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "LocationTracking/js/bootstrap.min.js" %}"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div class="navbar navbar-default">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand navbar-brand-logo" href="#"><img id="logo" src="{% static "LocationTracking/images/logo-transparent.png" %}"/></a>
+						<a class="navbar-brand" href="#">Location Tracker</a>
+					</div>
+					{% if user.is_authenticated %}
+						<div class="navbar-collapse collapse navbar-responsive-collapse">
+							<ul class="nav navbar-nav">
+								<li><a href="#">Users & Devices</a></li>
+							</ul>
+							<ul class="nav navbar-nav">
+								<li><a href="#">Beacons</a></li>
+							</ul>
+							<ul class="nav navbar-nav">
+								<li><a href="#">Device Log</a></li>
+							</ul>
+							<ul class="nav navbar-nav">
+								<li><a href="#">Admin Panel</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+			<div id="body">
+				{% block content %}
+				{% endblock %}
+			</div>
+			{% block footer %}
+				<div id="footer">
+					<img id="jhu_logo" src="{% static "LocationTracking/images/JHU_logo.png" %}"/>
+				</div>
+			{% endblock %}
+		</div>
+	</body>
+</html>

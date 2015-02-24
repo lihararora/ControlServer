@@ -1,0 +1,29 @@
+{% extends "LocationTracking/html/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static "LocationTracking/css/index.css" %}" />
+
+<script type="text/javascript" src="{% static "LocationTracking/js/index.js" %}"></script>
+
+<div id="map_super_container">
+	<div id="map_container">
+		<img id="map" src="{% static "LocationTracking/images/plan.png" %}" onload="placeBeacons()" />
+		{% for beacon in beacons %}
+			<img class="beacon" src="{% static "LocationTracking/images/Beacon_transparent.gif" %}" minor="{{ beacon.minor }}"  x="{{ beacon.x }}" y="{{ beacon.y }}" z="{{ beacon.z }}"/>
+			<img class="area" id="area{{ beacon.minor }}" src="{% static "LocationTracking/images/Area_transparent.gif" %}"/>
+		{% endfor %}
+		<img id="device" src="{% static "LocationTracking/images/Device_transparent.gif" %}" />
+	</div>
+</div>
+
+<script type="text/javascript">
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

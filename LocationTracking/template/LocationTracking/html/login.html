@@ -1,0 +1,33 @@
+{% extends "LocationTracking/html/base.html" %}
+
+{% block content %}
+<h3 class="col-lg-8 col-lg-offset-2">Welcome!</h3>
+<p class="col-lg-8 col-lg-offset-2" style="text-align: justify">Location Tracker is an attempt to using commercially available Beacons for tracking location of Bluetooth Low Energy (BLE) enabled devices. Bluetooth Low Energy or Bluetooth Smart is a wireless technology aimed at providing communications similar to a classic Bluetooth while considerably reducing cost and power consumption. This website is used in conjunction with the Location Tracker android app to track the location of an android phone inside the MSSI Lab of Johns Hopkins University.</p>
+<p class="col-lg-8 col-lg-offset-2">Please log in below to get started.</p>
+
+<div class="well bs-component col-lg-4 col-lg-offset-4">
+	<form class="form-horizontal" name="login_form" id="login_form" method="POST">
+		{% csrf_token %}
+		<fieldset>   
+			<legend>Please Login</legend>
+			<div class="form-group">
+				<label for="inputUsername" class="col-lg-2 control-label">Username</label>
+	      			<div class="col-lg-10">
+	        			<input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username">
+      				</div>
+			</div>
+			<div class="form-group">
+        	                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                	        <div class="col-lg-10">
+                        	        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                        	</div>
+	                </div>
+			<div class="form-group">
+      				<div class="col-lg-10 col-lg-offset-2">
+        				<button type="submit" class="btn btn-primary">Log In</button>
+	      			</div>
+    			</div> 
+		</fieldset>
+	</form>
+</div>
+{% endblock %}
